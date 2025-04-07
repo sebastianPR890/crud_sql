@@ -17,6 +17,8 @@ public class FormAlumno extends javax.swing.JFrame {
         initComponents();
         CConexion objetoConexion = new CConexion();
         objetoConexion.establecerConexion();
+        CAlumnos objetoAlumnos = new CAlumnos();
+        objetoAlumnos.MostrarAlumnos(jTable1);
     }
 
     /**
