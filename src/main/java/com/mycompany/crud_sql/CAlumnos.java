@@ -4,6 +4,10 @@
  */
 package com.mycompany.crud_sql;
 
+import java.sql.CallableStatement;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author sebit
@@ -36,4 +40,26 @@ public class CAlumnos {
     int codigo;
     String nombresAlumnos;
     String apellidosAlumnos;
+    public void InsertarAlumno(JTextField paraNombres, JTextField paraApellidos){
+        setNombresAlumnos(paraNombres.getText());        
+        setApellidosAlumnos(paraApellidos.getText());
+        
+        CConexion objetoConexion = new CConexion();
+        
+        String consulta = "insert into alumnos (nombres, apellidos) values (?,?);";
+        try {
+            CallableStatement cs = objetoConexion.establecerConexion().prepareCall(consulta);
+            
+            cs.setString(1,getNombresAlumnos());
+            cs.setString(2, getApellidosAlumnos());
+            
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "Se inserto correctamente el alumno");
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "No se inserto correctamente el alumno. Error: "+e.toString());
+        }
+    };
 }
