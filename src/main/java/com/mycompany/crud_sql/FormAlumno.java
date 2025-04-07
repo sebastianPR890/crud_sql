@@ -19,6 +19,7 @@ public class FormAlumno extends javax.swing.JFrame {
         objetoConexion.establecerConexion();
         CAlumnos objetoAlumnos = new CAlumnos();
         objetoAlumnos.MostrarAlumnos(jTable1);
+        Limpiar();
     }
 
     /**
@@ -206,18 +207,24 @@ public class FormAlumno extends javax.swing.JFrame {
         // TODO add your handling code here:
         CAlumnos objetoAlumnos = new CAlumnos();
         objetoAlumnos.InsertarAlumno(txtnombre, txtapellido);
+        objetoAlumnos.MostrarAlumnos(jTable1);
+        Limpiar();
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         // TODO add your handling code here:
         CAlumnos objetoAlumnos= new CAlumnos();
         objetoAlumnos.modificarAlumnos(txtid, txtnombre, txtapellido);
+        objetoAlumnos.MostrarAlumnos(jTable1);
+        Limpiar();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         // TODO add your handling code here:
         CAlumnos objetoAlumnos = new CAlumnos();
         objetoAlumnos.eliminarAlumnos(txtid);
+        objetoAlumnos.MostrarAlumnos(jTable1);
+        Limpiar();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -225,7 +232,11 @@ public class FormAlumno extends javax.swing.JFrame {
         CAlumnos objetoAlumno = new CAlumnos();
         objetoAlumno.seleccionarAlumno(jTable1, txtid, txtnombre, txtapellido);
     }//GEN-LAST:event_jTable1MouseClicked
-
+    private void Limpiar(){
+    txtid.setText("");
+    txtnombre.setText("");
+    txtapellido.setText("");
+    }
     /**
      * @param args the command line arguments
      */
