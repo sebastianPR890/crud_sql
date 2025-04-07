@@ -38,9 +38,9 @@ public class FormAlumno extends javax.swing.JFrame {
         txtid = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
         txtapellido = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
+        btnmodificar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -72,16 +72,21 @@ public class FormAlumno extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnguardarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Modificar");
+        btnmodificar.setText("Modificar");
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Eliminar");
+        btneliminar.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -106,9 +111,9 @@ public class FormAlumno extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btneliminar)
+                    .addComponent(btnmodificar)
+                    .addComponent(btnguardar))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -127,11 +132,11 @@ public class FormAlumno extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addComponent(jButton1)
+                .addComponent(btnguardar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnmodificar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btneliminar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -187,11 +192,17 @@ public class FormAlumno extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnombreActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         // TODO add your handling code here:
         CAlumnos objetoAlumnos = new CAlumnos();
         objetoAlumnos.InsertarAlumno(txtnombre, txtapellido);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        // TODO add your handling code here:
+        CAlumnos objetoAlumnos= new CAlumnos();
+        objetoAlumnos.modificarAlumnos(txtid, txtnombre, txtapellido);
+    }//GEN-LAST:event_btnmodificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,9 +240,9 @@ public class FormAlumno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnmodificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

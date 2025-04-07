@@ -98,4 +98,28 @@ public class CAlumnos {
                 JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros Error: "+e.toString());
             }
     }
+    public void modificarAlumnos (JTextField paracodigo, JTextField paraNombres, JTextField paraApellido){
+        setCodigo(Integer.parseInt(paracodigo.getText()));
+        setNombresAlumnos(paraNombres.getText());
+        setApellidosAlumnos(paraApellido.getText());
+        
+        CConexion objetoConexion = new CConexion();
+        
+        String consulta = "UPDATE Alumnos SET alumnos.nombres = ?, alumnos.apellidos = ? where alumnos.id =?;";
+        
+        try {
+            CallableStatement cs = objetoConexion.establecerConexion().prepareCall(consulta);
+            
+            cs.setString(1, getNombresAlumnos());
+            cs.setString(2, getApellidosAlumnos());
+            cs.setInt(3, getCodigo());
+            
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "Modificacion exitosa");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo modificar el alumno Error: "+e.toString());
+        }
+    }
 }
