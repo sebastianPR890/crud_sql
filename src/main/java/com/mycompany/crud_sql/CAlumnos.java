@@ -135,6 +135,27 @@ public class CAlumnos {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo eliminar Error: "+e.toString());
         }
-        
-}
+    }
+    public void seleccionarAlumno(JTable paraTablaAlumnos,JTextField paraid, JTextField paraNombres, JTextField paraApellidos){
+                        
+        try {
+            int fila = paraTablaAlumnos.getSelectedRow();
+            
+            if (fila>=0){
+                                           
+                paraid.setText((String)(paraTablaAlumnos.getValueAt(fila, 0)));
+                paraNombres.setText((String)(paraTablaAlumnos.getValueAt(fila, 1)));
+                paraApellidos.setText((String)(paraTablaAlumnos.getValueAt(fila, 2)));
+                
+            }
+            else {
+            
+            JOptionPane.showMessageDialog(null, "No se selecciono ninguna columna");
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: "+e.toString());
+            
+        }
+    }
 }

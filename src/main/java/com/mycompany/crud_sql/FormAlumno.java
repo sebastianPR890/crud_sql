@@ -158,6 +158,11 @@ public class FormAlumno extends javax.swing.JFrame {
 
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -214,6 +219,12 @@ public class FormAlumno extends javax.swing.JFrame {
         CAlumnos objetoAlumnos = new CAlumnos();
         objetoAlumnos.eliminarAlumnos(txtid);
     }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        CAlumnos objetoAlumno = new CAlumnos();
+        objetoAlumno.seleccionarAlumno(jTable1, txtid, txtnombre, txtapellido);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
